@@ -202,7 +202,7 @@
                         <tbody>
                             <tr>
                                 <td>Iphone 5</td>
-                                <td><img src="assets/images/products/01.png" class="product-img-2" alt="product img"></td>
+                                <td><img src="{{ asset('assets/images/products/01.png') }}" class="product-img-2" alt="product img"></td>
                                 <td>#9405822</td>
                                 <td><span class="badge bg-gradient-quepal text-white shadow-sm w-100">Paid</span></td>
                                 <td>$1250.00</td>

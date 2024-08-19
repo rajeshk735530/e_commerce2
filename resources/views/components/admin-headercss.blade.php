@@ -24,5 +24,6 @@
 	<link rel="stylesheet" href="{{asset('assets/css/header-colors.css')}}" />
 	<link rel="stylesheet" href="https://developercodez.com/developerCorner/parsley/parsley.css" >
 	<script src="{{asset('assets/js/jquery.min.js')}}"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/snackbarjs/1.1.0/snackbar.css" integrity="sha512-X3jcmfsWau6LnAjqe0EJhFnyEtT3OJtWg9D/x4iroC6x8XarBaWTS5mSKwxd697eyLV0w8f29PPirMcsw4xE4Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 	<title>Rocker - Bootstrap 5 Admin Dashboard Template</title>
 </head>

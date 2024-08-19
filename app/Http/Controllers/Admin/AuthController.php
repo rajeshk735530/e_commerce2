@@ -15,8 +15,8 @@ class AuthController extends Controller
     {
         // Create a new user instance
         $user = new User();
-        $user->name = 'Admin';
-        $user->email = 'admin@gmail.com';
+        $user->name = 'Rajesh Arya';
+        $user->email = 'rajesh@gmail.com';
         $user->password = Hash::make('12345678');
         $user->save();
 

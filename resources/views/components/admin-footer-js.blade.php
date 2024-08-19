@@ -12,6 +12,7 @@
 <!--app JS-->
 <script src="{{asset('assets/js/app.js')}}"></script>
 <script src="https://developercodez.com/developerCorner/parsley/parsley.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/snackbarjs/1.1.0/snackbar.min.js" integrity="sha512-Knad2JJvcddGNKm03ySDgeTKXQfBjH0XPrFqUyzM0BuJhKkVfLzoOK5Ii9jsLmbZTXM8YNqn42suHyIEbQXboQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 <!--Password show & hide js -->
 <script>
@@ -29,4 +30,53 @@
             }
         });
     });
+
+    $(document).ready(function(f){
+        $('#formSubmit').on('submit', (function(e) {
+            if($(this).parsley().Validator()){
+                e.preventDefault();
+                var formData = new FormData(this);
+                var html = '<button class="btn btn-primary" type="button" disabled=""> <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>Loading...</button>';
+                var html1 = '<input type="submit" id="submitButton" class="btn btn-primary px-4" />';
+
+                $('#submitButton').html(html);
+                $.ajax({
+                    type        :'POST',
+                    url         :$(this).attr('action'),
+                    data        :formData,
+                    cache       :false,
+                    contentType :false,
+                    processData :false,
+
+                    success:function(result){
+                        if (result.status == 'Success') {
+                            SnackBar({
+                                status   :result.status,
+                                message  :result.message,
+                                position :"br"
+                            });
+                            $('#submitButton').html(html);
+                        }else{
+                            showAlert(result.status, result.message);
+                            $('#submitButton').html(html1);
+                        }
+                    },
+                });
+            }
+        }));
+    });
+
+    $(document).ready(() => {
+        $('#photo').change(function () {
+            const file = this->files[0];
+            if(file){
+                let reader = new FileReader();
+                reader.onload = function (event) {
+                    $("#imgPreview").attr("src", event.target.result)
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    });
+
 </script>

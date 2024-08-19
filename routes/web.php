@@ -2,11 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\authLogin\authLoginController;
+// use App\Http\Controllers\Admin\AuthController;
 use Illuminate\Support\Facades\Auth;
 
-// Route::get('/', function () {
-//     return view('admin/index');
-// });
+Route::get('/', function () {
+    return redirect('admin/dashboard');
+});
 
 Route::get('/login', function () {
     return view('auth/signIn');
@@ -18,4 +19,4 @@ Route::get('logout', function () {
 });
 
 Route::post('/login_user', [authLoginController::class, 'loginUser']);
-base_path('routes/admin.php');
+// Route::get('/createCustomer', [AuthController::class, 'createCustomer']);

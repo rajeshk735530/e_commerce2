@@ -1,5 +1,4 @@
 @extends('admin/layeout')
-
 @section('content')
 
     <!--start page wrapper -->

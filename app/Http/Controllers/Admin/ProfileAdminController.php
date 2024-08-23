@@ -46,7 +46,7 @@ class ProfileAdminController extends Controller
         ]);
 
         if ($validation->fails()) {
-            return error($validation->errors()->first(), 400, []);
+            return $this->error($validation->errors()->first(), 400, []);
             // return response()->json(['status'=>400, 'message'=>$validation->errors()->first()]);
         }else{
             if($request->hasFile('image')){
